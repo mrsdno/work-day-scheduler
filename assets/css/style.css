@@ -33,17 +33,18 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding-top: 15px;
 }
 
 .task {
-  color: blue;
+  vertical-align: center;
 }
 
 .past {
@@ -72,4 +73,29 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.enter-task {
+  background-color: #d3d3d3;
+}
+
+span {
+  vertical-align: center;
+}
+
+.time-group {
+  height: 150px;
+  margin: 10px 0px;
+}
+
+.enter-task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80px;
 }

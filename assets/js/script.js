@@ -1,6 +1,5 @@
 var schedule = {
-    eightAM: [" "],
-    nineAM: [" "]
+
 };
 
 
@@ -37,7 +36,15 @@ $(".saveBtn").on("click", function(){
     else {
         savedSchedule = {
             eightAM: [],
-            nineAM: []
+            nineAM: [],
+            tenAM: [],
+            elevenAM: [],
+            twelvePM: [],
+            onePM: [],
+            twoPM: [],
+            threePM: [],
+            fourPM: [],
+            fivePM: []
         };
     }
 
@@ -56,7 +63,8 @@ $(".saveBtn").on("click", function(){
     if (task) {
     //create new div element to display new task
     var updatedTask = $("<span>")
-    .text(task);
+    .text(task)
+    .addClass("task");
 
     // display new task after updating
 
@@ -102,20 +110,58 @@ var loadSchedule = function(schedule) {
         schedule = JSON.parse(localStorage.schedule);
 
         // load 8 am task 
-        $("#eight-am-task").remove(".holder-task")
         $("#eight-am-task").append("<span>" + schedule.eightAM + "</span>")
         .addClass("enter-task");
     
         // load 9 am task 
-        $("#nine-am-task").remove(".holder-task")
         $("#nine-am-task").append("<span>" + schedule.nineAM + "</span>")
+        .addClass("enter-task");
+
+        // load 10 am task 
+        $("#ten-am-task").append("<span>" + schedule.tenAM + "</span>")
+        .addClass("enter-task");
+
+        // load 11 am task 
+        $("#eleven-am-task").append("<span>" + schedule.elevenAM + "</span>")
+        .addClass("enter-task");
+
+        // load 12 pm task 
+        $("#twelve-pm-task").append("<span>" + schedule.twelvePM + "</span>")
+        .addClass("enter-task");
+
+        // load 1 pm task 
+        $("#one-pm-task").append("<span>" + schedule.onePM + "</span>")
+        .addClass("enter-task");
+
+        // load 2 pm task 
+        $("#two-pm-task").append("<span>" + schedule.twoPM + "</span>")
+        .addClass("enter-task");
+        
+        // load 3 pm task 
+        $("#three-pm-task").append("<span>" + schedule.threePM + "</span>")
+        .addClass("enter-task");
+
+        // load 4 pm task 
+        $("#four-pm-task").append("<span>" + schedule.fourPM + "</span>")
+        .addClass("enter-task");
+
+        // load 5 pm task 
+        $("#five-pm-task").append("<span>" + schedule.fivePM + "</span>")
         .addClass("enter-task");
     }
     
     else {
         schedule = {
-            eightAM: [],
-            nineAM: []
+            eightAM: [" "],
+            nineAM: [" "],
+            tenAM: [" "],
+            elevenAM: [" "],
+            twelvePM: [" "],
+            onePM: [" "],
+            twoPM: [" "],
+            threePM: [" "],
+            fourPM: [" "],
+            fivePM: [" "]
         };
     }
 }

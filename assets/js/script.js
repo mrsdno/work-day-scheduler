@@ -1,9 +1,6 @@
 var schedule = {};
 var now = moment().format('MM/DD/YYYY');
 
-
-
-
 // time block paragraph clicked to enter task
 $(".time-block").on("click", ".task", function() {
     var task = $(this)
@@ -27,13 +24,14 @@ $(".time-block").on("click", ".task", function() {
 
 $(".saveBtn").on("click", function(){
 
-
+    // get data from local storage if it exists
     if (localStorage.schedule) {
         savedSchedule = localStorage.getItem("schedule");
 
         savedSchedule = JSON.parse(savedSchedule);
     }
     
+    // if its not, set up an empty string we can update
     else {
         savedSchedule = {
             eightAM: [],
@@ -49,8 +47,6 @@ $(".saveBtn").on("click", function(){
         };
     }
 
-    // get data from local storage
-
 
     // get the parent tasks ID
     var taskTime = $(this)
@@ -58,9 +54,9 @@ $(".saveBtn").on("click", function(){
 
     //get current text
     var task = $("input[type='text']")
-    .val()
-    .trim();
+    .val();
 
+    // if there is updated text
     if (task) {
     //create new div element to display new task
     var updatedTask = $("<span>")
@@ -68,9 +64,8 @@ $(".saveBtn").on("click", function(){
     .addClass("task");
 
     // display new task after updating
-
     $("input[type='text']").replaceWith(updatedTask)
-
+    
     }
 
     else {
@@ -88,9 +83,14 @@ $(".saveBtn").on("click", function(){
     console.log(this);
     console.log(savedSchedule);
     // update task array and save to local storage
+
+    if (task) {
     savedSchedule[taskTime] = task;
+    }
 
-
+    else {
+        savedSchedule[taskTime] = " ";
+    }
 
     saveTask(savedSchedule);
 })
@@ -98,9 +98,7 @@ $(".saveBtn").on("click", function(){
 
 
 var saveTask = function(savedSchedule){
-
     localStorage.setItem("schedule", JSON.stringify(savedSchedule));
-  
 }
 
 var loadSchedule = function(schedule) {
@@ -169,7 +167,21 @@ var loadSchedule = function(schedule) {
     }
 }
    
+var auditTimes = function() {
 
+    const times = document.querySelectorAll('.task');
+    const count = times.length;
+    let time = 8;
+
+
+    for (let i=0; i < count; i++){
+        var currentTime = times[i].id;
+        console.log(currentTime, time);
+        time ++;
+    }
+
+}
 
 
 loadSchedule();
+auditTimes();

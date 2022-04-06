@@ -25,13 +25,21 @@ textarea{
   white-space: pre-wrap;
 }
 
+.lead {
+  margin-top: 20px;
+}
+
 .time-block{
   text-align: center;
   border-radius: 15px;
 }
 
+.task-box {
+  padding-right: 0!important;
+  padding-left: 0!important;
+}
+
 .row {
-  white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
 }
@@ -40,7 +48,8 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  padding-top: 15px;
+  height: 80px;
+  padding-top: 10px;
 }
 
 .task {
@@ -68,6 +77,9 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  height: 80px;
+  width: 100%;
+  border: none;
 }
 
 .saveBtn i:hover {
@@ -90,8 +102,8 @@ span {
 }
 
 .time-group {
-  height: 150px;
-  margin: 10px 0px;
+  height: 80px;
+  margin: 2px 0px;
 }
 
 .enter-task {

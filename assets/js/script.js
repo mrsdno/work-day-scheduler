@@ -1,6 +1,5 @@
 var schedule = {
-    eightAM: [],
-    nineAM: [],
+
 };
 
 
@@ -27,6 +26,11 @@ $(".time-block").on("click", ".task", function() {
 
 $(".saveBtn").on("click", function(){
 
+    // get data from local storage
+    savedSchedule = localStorage.getItem("schedule");
+
+    savedSchedule = JSON.parse(savedSchedule);
+
     // get the parent tasks ID
     var taskTime = $(this)
     .attr("id");  
@@ -39,7 +43,6 @@ $(".saveBtn").on("click", function(){
     if (task) {
     //create new div element to display new task
     var updatedTask = $("<span>")
-    .addClass("task")
     .text(task);
 
     // display new task after updating
@@ -60,20 +63,20 @@ $(".saveBtn").on("click", function(){
     }
 
     // update task array and save to local storage
-    schedule[taskTime] = task;
+    savedSchedule[taskTime] = task;
     console.log(taskTime);
     console.log(this);
-    console.log(schedule);
+    console.log(savedSchedule);
 
 
-    saveTask();
+    saveTask(savedSchedule);
 })
 
 
 
-var saveTask = function(){
+var saveTask = function(savedSchedule){
     
-    localStorage.setItem("schedule", JSON.stringify(schedule));
+    localStorage.setItem("schedule", JSON.stringify(savedSchedule));
 
 
 }

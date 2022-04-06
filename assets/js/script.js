@@ -1,6 +1,7 @@
-var schedule = {
+var schedule = {};
+var now = moment().format('MM/DD/YYYY');
 
-};
+
 
 
 // time block paragraph clicked to enter task
@@ -104,6 +105,8 @@ var saveTask = function(savedSchedule){
 
 var loadSchedule = function(schedule) {
 
+    // add date to the header
+    $("#currentDay").append(now);
 
     if (localStorage.schedule) {
 

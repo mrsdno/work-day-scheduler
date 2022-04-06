@@ -1,5 +1,6 @@
 var schedule = {
-
+    eightAM: [" "],
+    nineAM: [" "]
 };
 
 
@@ -26,10 +27,22 @@ $(".time-block").on("click", ".task", function() {
 
 $(".saveBtn").on("click", function(){
 
-    // get data from local storage
-    savedSchedule = localStorage.getItem("schedule");
 
-    savedSchedule = JSON.parse(savedSchedule);
+    if (localStorage.schedule) {
+        savedSchedule = localStorage.getItem("schedule");
+
+        savedSchedule = JSON.parse(savedSchedule);
+    }
+    
+    else {
+        savedSchedule = {
+            eightAM: [],
+            nineAM: []
+        };
+    }
+
+    // get data from local storage
+
 
     // get the parent tasks ID
     var taskTime = $(this)
@@ -62,11 +75,12 @@ $(".saveBtn").on("click", function(){
         $("input[type='text']").replaceWith(updatedTask);
     }
 
-    // update task array and save to local storage
-    savedSchedule[taskTime] = task;
     console.log(taskTime);
     console.log(this);
     console.log(savedSchedule);
+    // update task array and save to local storage
+    savedSchedule[taskTime] = task;
+
 
 
     saveTask(savedSchedule);
@@ -75,26 +89,38 @@ $(".saveBtn").on("click", function(){
 
 
 var saveTask = function(savedSchedule){
-    
+
     localStorage.setItem("schedule", JSON.stringify(savedSchedule));
-
-
+  
 }
 
 var loadSchedule = function(schedule) {
 
-    schedule = JSON.parse(localStorage.schedule);
 
-    // load 8 am task 
-    $("#eight-am-task").remove(".holder-task")
-    $("#eight-am-task").append("<span>" + schedule.eightAM + "</span>")
-    .addClass("enter-task");
+    if (localStorage.schedule) {
 
-    // load 9 am task 
-    $("#nine-am-task").remove(".holder-task")
-    $("#nine-am-task").append("<span>" + schedule.nineAM + "</span>")
-    .addClass("enter-task");
+        schedule = JSON.parse(localStorage.schedule);
 
+        // load 8 am task 
+        $("#eight-am-task").remove(".holder-task")
+        $("#eight-am-task").append("<span>" + schedule.eightAM + "</span>")
+        .addClass("enter-task");
+    
+        // load 9 am task 
+        $("#nine-am-task").remove(".holder-task")
+        $("#nine-am-task").append("<span>" + schedule.nineAM + "</span>")
+        .addClass("enter-task");
+    }
+    
+    else {
+        schedule = {
+            eightAM: [],
+            nineAM: []
+        };
+    }
 }
+   
+
+
 
 loadSchedule();

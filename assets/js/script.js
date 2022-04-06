@@ -5,7 +5,7 @@ var schedule = {
 
 
 // time block paragraph clicked to enter task
-$(".time-block").on("click", "span", function() {
+$(".time-block").on("click", ".task", function() {
     var task = $(this)
     .text()
     .trim();
@@ -39,18 +39,19 @@ $(".saveBtn").on("click", function(){
     if (task) {
     //create new div element to display new task
     var updatedTask = $("<span>")
-    .addClass("enter-task")
+    .addClass("task")
     .text(task);
 
     // display new task after updating
 
-    $("input[type='text']").replaceWith(updatedTask);
+    $("input[type='text']").replaceWith(updatedTask)
+
     }
 
     else {
         // assign text to empty string
         var updatedTask = $("<span>")
-        .addClass("enter-task")
+        .addClass("task")
         .addClass("col-8")
         .text(" ");
 

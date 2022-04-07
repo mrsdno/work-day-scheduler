@@ -13,6 +13,19 @@ textarea{
   padding: 10px;
 }
 
+input {
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+span {
+  vertical-align: center;
+}
+
+
+
+/* header start */
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -28,6 +41,10 @@ textarea{
 .lead {
   margin-top: 20px;
 }
+
+/* header end */
+
+/* time blocks begin */
 
 .time-block{
   text-align: center;
@@ -56,6 +73,19 @@ textarea{
   vertical-align: center;
 }
 
+.time-group {
+  height: 80px;
+  margin: 2px 0px;
+}
+
+.enter-task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80px;
+}
+
+/* classes used for formatting times based on current time */
 .past {
   background-color: #d3d3d3;
   color: white;
@@ -87,28 +117,8 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-input {
-  outline: none;
-  border: none;
-  width: 100%;
-}
+/* time blocks end */
 
-.enter-task {
-  background-color: #d3d3d3;
-}
-
-span {
-  vertical-align: center;
-}
-
-.time-group {
-  height: 80px;
-  margin: 2px 0px;
-}
-
-.enter-task {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 80px;
+footer {
+  height: 100px;
 }

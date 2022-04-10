@@ -1,5 +1,17 @@
 // set up empty schedule variable for storage
-var schedule = {};
+var schedule = {
+    eightAM: [],
+    nineAM: [],
+    tenAM: [],
+    elevenAM: [],
+    twelvePM: [],
+    onePM: [],
+    twoPM: [],
+    threePM: [],
+    fourPM: [],
+    fivePM: []
+};
+
 // set now to current time to display in the header
 var now = moment().format('MM/DD/YYYY');
 
@@ -45,7 +57,6 @@ $(".time-block").on("click", ".task", function() {
     taskInput.trigger("focus");
 
 })
-
 
 //click save button block paragraph to save new task
 $(".saveBtn").on("click", function(){

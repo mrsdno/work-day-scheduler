@@ -15,6 +15,7 @@ Access the deployed application <a href="https://mrsdno.github.io/work-day-sched
 * The website also will track the time. 
 * The current time will be red, so you know what you should be working on now. 
 * Times in the past will be green so you know what you should have completed already.
+* Times in the future will be gray.
 
 
 ![screenshot](/assets/img/screenshot.PNG)
